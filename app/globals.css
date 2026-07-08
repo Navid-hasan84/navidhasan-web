@@ -39,33 +39,51 @@ a {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 50;
   display: flex;
+  min-height: 58px;
   align-items: center;
   justify-content: space-between;
-  padding: 20px clamp(18px, 5vw, 72px);
-  border-bottom: 1px solid var(--line);
-  background: rgba(5, 7, 18, 0.72);
+  padding: 10px clamp(18px, 5vw, 72px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(5, 7, 18, 0.86);
   backdrop-filter: blur(18px);
+  transform: translateY(0);
+  opacity: 1;
+  transition:
+    transform 320ms ease,
+    opacity 320ms ease,
+    background 220ms ease,
+    border-color 220ms ease;
+}
+
+.site-header-hidden {
+  transform: translateY(-110%);
+  opacity: 0;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .brand-mark {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   place-items: center;
   color: var(--moon);
   border: 1px solid var(--line);
   border-radius: 999px;
-  box-shadow: 0 0 24px rgba(244, 240, 220, 0.18);
+  box-shadow: 0 0 18px rgba(244, 240, 220, 0.14);
+}
+
+.brand-name {
+  line-height: 1;
 }
 
 .desktop-nav {
@@ -76,8 +94,26 @@ a {
   font-size: 14px;
 }
 
-.desktop-nav a:hover {
+.nav-link {
+  position: relative;
+  padding: 8px 0;
+  transition: color 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link-active {
   color: var(--text);
+}
+
+.nav-link-active::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, var(--moon), transparent);
+  box-shadow: 0 0 16px rgba(244, 240, 220, 0.35);
 }
 
 .hero {
@@ -233,20 +269,23 @@ h1 {
 
 @media (max-width: 820px) {
   .site-header {
-    align-items: flex-start;
-    gap: 18px;
-    flex-direction: column;
+    min-height: 54px;
+    padding: 10px 18px;
   }
 
   .desktop-nav {
-    width: 100%;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    display: none;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
   }
 
   .hero {
     min-height: auto;
     place-items: start;
+    padding-top: 64px;
   }
 
   .moon {
