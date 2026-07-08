@@ -313,13 +313,13 @@ h1 {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 60;
+    z-index: 80;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     min-height: calc(64px + env(safe-area-inset-bottom));
     padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
     border-top: 1px solid var(--line);
-    background: rgba(5, 7, 18, 0.92);
+    background: rgba(5, 7, 18, 0.94);
     box-shadow: 0 -12px 38px rgba(0, 0, 0, 0.32);
     backdrop-filter: blur(18px);
   }
@@ -331,9 +331,13 @@ h1 {
     place-items: center;
     gap: 4px;
     padding: 6px 2px;
+    border: 0;
+    background: transparent;
     color: var(--muted);
+    font: inherit;
     font-size: 11px;
     line-height: 1;
+    cursor: pointer;
     transition:
       color 180ms ease,
       background 180ms ease;
@@ -349,7 +353,8 @@ h1 {
     transition:
       background 180ms ease,
       box-shadow 180ms ease,
-      color 180ms ease;
+      color 180ms ease,
+      transform 180ms ease;
   }
 
   .mobile-nav-label {

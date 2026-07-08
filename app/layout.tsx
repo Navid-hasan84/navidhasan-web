@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./globals.css";
 import { site } from "@/lib/site";
+import SiteHeader from "@/components/SiteHeader";
+import MobileBottomNav from "@/components/MobileBottomNav";
 
 export const metadata: Metadata = {
   title: {
@@ -27,20 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="site-header">
-          <Link href="/" className="brand">
-            <span className="brand-mark">◐</span>
-            <span>{site.name}</span>
-          </Link>
-
-          <nav className="desktop-nav" aria-label="Main navigation">
-            {site.nav.map((item) => (
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </header>
+        <SiteHeader />
 
         <main>{children}</main>
 
@@ -48,6 +36,8 @@ export default function RootLayout({
           <span>© {new Date().getFullYear()} {site.name}</span>
           <span>Moonlit systems for work, growth, and creation.</span>
         </footer>
+
+        <MobileBottomNav />
       </body>
     </html>
   );

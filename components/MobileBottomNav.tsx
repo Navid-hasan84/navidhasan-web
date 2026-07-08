@@ -25,9 +25,9 @@ const bottomNavItems = [
     icon: "✉",
   },
   {
-    href: "/portal",
-    label: "Orbit",
-    icon: "◎",
+    href: "/about",
+    label: "About",
+    icon: "◌",
   },
 ];
 
