@@ -1,8 +1,13 @@
-export const metadata = {
-  title: "Portal",
-  description: "Future client portal for projects, payments, documents, and messages.",
-};
+import { createPageMetadata } from "@/lib/metadata";
 
+
+
+export const metadata = createPageMetadata({
+  title: "Client Portal",
+  description: "Reserved client portal for future project communication, documents, delivery information, and private workflows.",
+  path: "/portal",
+  noIndex: true,
+});
 export default function PortalPage() {
   return (
     <section className="page">

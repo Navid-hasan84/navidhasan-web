@@ -1,0 +1,134 @@
+.navigation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  height: 29px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 800px;
+  background: transparent;
+  color: #2b2a2a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  white-space: nowrap;
+  transition:
+    color 5ms ease-in-out,
+    background-color 5ms ease-in-out,
+    border-color 5ms ease-in-out;
+}
+
+.link:hover,
+.activeLink {
+  background-color: #f0efed;
+  color: #151414;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: #151414;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0);
+  transform-origin: center;
+  will-change: width, transform;
+}
+
+.contactButton {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 17px;
+  border: 1px solid #111110;
+  border-radius: 999px;
+  background: #111110;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 720;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.contactButton:hover {
+  border-color: #343431;
+  background: #343431;
+  transform: translateY(-1px);
+}
+
+.contactButtonActive {
+  border-color: #343431;
+  background: #343431;
+}
+
+.contactArrow {
+  font-size: 13px;
+  line-height: 1;
+  transition: transform 160ms ease;
+}
+
+.contactButton:hover .contactArrow {
+  transform: translate(2px, -2px);
+}
+
+.link:focus-visible,
+.contactButton:focus-visible {
+  outline: 2px solid #151414;
+  outline-offset: 4px;
+}
+
+@media (max-width: 960px) {
+  .navigation {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 820px) {
+  .navigation {
+    display: none;
+  }
+
+  .contactButton {
+    min-height: 36px;
+    padding: 0 15px;
+    font-size: 12px;
+  }
+
+  .contactArrow {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .contactButton {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .contactButton,
+  .contactArrow {
+    transition: none;
+  }
+
+  .activeIndicator {
+    will-change: auto;
+  }
+}
